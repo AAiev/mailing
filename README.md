@@ -25,7 +25,7 @@
 ### 4. заполнить моделb данными: 
     Команда для Windows:
         1- python manage.py add_blog
-        2- python manage.py add_mailing
+        2- python manage.py add_message
 
 ### 5. заполнить файл:
     - .env
@@ -35,18 +35,11 @@
     Команда для Windows
     1- python manage.py csu
 
-    Команда для Unix
-    - python3 manage.py csu
 ### 7. Для запуска приложения: 
     Команда для Windows:
     - python manage.py runserver
 
-    Команда для Unix:
-    - python3 manage.py runserver
 
 ### 8. Для отправки рассылки из командной строки: 
     Команда для Windows:
     - python manage.py sendmessage N, где N - это PK рассылки (узнать PK рассылки можно в админке)
-
-    Команда для Unix:    
-    - python3 manage.py sendmessage N, где N - это PK рассылки (узнать PK рассылки можно в админке)
