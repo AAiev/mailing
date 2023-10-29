@@ -1,5 +1,5 @@
 {% extends 'mailing/base.html' %}
-{% load mediapath %}
+{% load my_tags %}
 {% block content %}
 
 <div class="card">
@@ -9,7 +9,9 @@
 </div>
 <h5 style="color:#FF0000">{{ object.view_count }}</h5>
 <a class="btn btn-warning" href="{% url 'blog:blog_update' object.slug %}" role="button">Изменить
-</a> <br>
+</a>
 <a class="btn btn-danger" href="{% url 'blog:blog_delete' object.slug %}" role="button">Удалить
-</a> <br>
+</a>
+<a class="btn btn-success" href="{% url 'blog:blog_list' %}" role="button">Назад
+</a>
 {% endblock %}

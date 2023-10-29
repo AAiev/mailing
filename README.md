@@ -1,45 +1,36 @@
 ## Курсовая 6. Основы веб-разработки на Django
 
-### 1. Для запуска приложения необходимо настроить виртуальное окружение и установить все необходимые зависимости с помощью команд:
+Для запуска проекта необходимо:
+### 1. настроить виртуальное окружение и установить зависимости 
     Команда для Windows:
-        1- python -m venv venv
-        2- venv\Scripts\activate
-        3- pip install -r requirement.txt
+        1 - python -m venv venv
+        2 - venv\Scripts\activate
+        3 - pip install -r requirements.txt
+        4 - psql -U postgres
+            create database <название  БД>;
 
-    Команда для Unix:
-        1- python3 -m venv venv
-        2- source venv/bin/activate 
-        3- pip install -r requirement.txt
-
-### 2. Для запуска celery:
+### 2. запустить celery:
         1- celery -A config worker -l info  
 
-### 3. Для запуска redis:
+### 3. запустить redis:
     Redis официально не поддерживается в Windows: 
-        1- Установите WSL2, Ubuntu. Подробности смотрите тут https://redis.io/docs/getting-started/installation/install-redis-on-windows/
-        2- sudo apt-get update
-        3- sudo service redis-server start
-        4- redis-cli
-        5- ping
+        1 - Установите WSL2, Ubuntu. Подробности смотрите тут https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+        2 - sudo apt-get update
+        3 - sudo service redis-server start
+        4 - redis-cli
+        5 - ping
         
         Ответом от сервиса должно быть PONG. Это означает что Redis подключен
 
-    Команда для Unix:
-        1- redis-cli
-
-### 4. Для заполнения моделей данными необходимо выполнить следующую команду: 
+### 4. заполнить моделb данными: 
     Команда для Windows:
         1- python manage.py add_blog
         2- python manage.py add_mailing
 
-    Команда для Unix:
-        1- python3 manage.py add_blog
-        2- python3 manage.py add_mailing
-
-### 5. Для работы с переменными окружениями необходимо заполнить файл
+### 5. заполнить файл:
     - .env
 
-### 6. Для создания администратора (createsuperuser)
+### 6. создать администратора (createsuperuser)
     - заполните поля email, PASSWORD. users/management/commands/csu.py
     Команда для Windows
     1- python manage.py csu

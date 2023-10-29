@@ -1,3 +1,5 @@
+from random import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
@@ -30,7 +32,7 @@ class BlogDetailView(LoginRequiredMixin, DetailView):
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     fields = ('title', 'text', 'image', 'is_active')
-    success_url = reverse_lazy('mailing:blog_list')
+    success_url = reverse_lazy('blog:blog_list')
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -42,12 +44,13 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     fields = ('title', 'text', 'image', 'is_active')
 
     def get_success_url(self):
-        return reverse('mailing:blog_detail', kwargs={'pk': self.object.pk})
+        # return reverse('blog:blog_detail', kwargs={'pk': self.object.pk})
+        return reverse('blog:blog_detail', kwargs={'slug': self.object.slug})
 
 
 class BlogDeleteView(LoginRequiredMixin, DeleteView):
     model = Blog
-    success_url = reverse_lazy('mailing:blog_list')
+    success_url = reverse_lazy('blog:blog_list')
 
 
 class ContactView(TemplateView):

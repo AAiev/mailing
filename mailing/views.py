@@ -15,7 +15,7 @@ from mailing.services.services import MessageService, delete_task, send_mailing,
 class HomeView(TemplateView):
     """Представление главной страницы сервиса"""
     extra_context = {
-        'title': 'SkyBlog'
+        'title': 'Сервис Рассылок'
     }
 
     def get_context_data(self, **kwargs):

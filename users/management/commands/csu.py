@@ -14,7 +14,7 @@ class Command(BaseCommand):
                 password=settings.SUPERUSER_PASSWORD,
             )
         except IntegrityError:
-            user = User.objects.get(email='admin@yandex.ru')
+            user = User.objects.get(email='admin@ya.ru')
             if not user.check_password(settings.SUPERUSER_PASSWORD):
                 user.set_password(settings.SUPERUSER_PASSWORD)
             self.stdout.write(self.style.NOTICE('User "%s" already exists' % user))

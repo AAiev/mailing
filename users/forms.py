@@ -35,7 +35,7 @@ class UserProfileForm(MixinStyle, UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name', 'phone', 'avatar')
+        fields = ('email', 'first_name', 'last_name', 'phone', 'avatar', 'country')
 
     def __init__(self, *args, **kwargs):
         """Обновление стилей формы профиль"""

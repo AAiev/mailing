@@ -149,6 +149,10 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = BASE_DIR.joinpath('email-messages')
+
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -175,8 +179,8 @@ if CACHE_ENABLED:
         }
     }
 
-SUPERUSER_EMAIL = os.getenv('SUPERUSER_EMAIL', 'admin@yandex.ru')
-SUPERUSER_PASSWORD = os.getenv('SUPERUSER_PASSWORD', '456852')
+SUPERUSER_EMAIL = os.getenv('SUPERUSER_EMAIL', 'admin@ya.ru')
+SUPERUSER_PASSWORD = os.getenv('SUPERUSER_PASSWORD', '12345678')
 
 FORBIDDEN_WORDS: tuple[str, ...] = (
     "казино", "криптовалюта",
